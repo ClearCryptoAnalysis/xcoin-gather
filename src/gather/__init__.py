@@ -1,3 +1,3 @@
 """Gather classes for various crypto coins."""
 
-from ethereum import GatherDataEthereum
+from .ethereum import GatherDataEthereum
