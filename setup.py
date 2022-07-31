@@ -18,7 +18,7 @@ long_description = (here / "README.md").read_text(encoding="utf-8")
 # Fields marked as "Optional" may be commented out.
 
 setup(
-    name="xcoin-gather",
+    name="xcoingather",
     version="0.0.0",
     description="Data gathering tools for various crypto coins.",
     long_description=long_description,
