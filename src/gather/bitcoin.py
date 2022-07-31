@@ -26,7 +26,7 @@ class GatherDataBitcoin(GatherDataBase):
                     "block_hash": block_number,
                 }
             ),
-            headers={"Content-Type": "application/json"}
+            headers={}
         )
         try:
             return request.json()
