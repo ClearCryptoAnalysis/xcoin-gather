@@ -1,4 +1,4 @@
-from json.decoder import JSONDecodeError
+from json import JSONDecodeError
 import requests
 
 from .base import GatherDataBase
@@ -11,7 +11,7 @@ class GatherDataEthereum(GatherDataBase):
             abbreviation="ETH",
             base_dir=base_dir,
             data_chunk_properties={
-                "chunk_size": 10000,
+                "chunk_size": 100000,
                 "zfill_len": 3,
             }
         )
