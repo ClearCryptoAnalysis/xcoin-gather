@@ -34,6 +34,6 @@ class GatherDataSolana(GatherDataBase):
             },
         )
         try:
-            return request.json()["result"]
+            return request.json()
         except JSONDecodeError:
             return "\n"
