@@ -26,7 +26,10 @@ class GatherDataBitcoin(GatherDataBase):
                     "block_hash": block_number,
                 }
             ),
-            headers={}
+            headers={},
+            proxies={
+                "http": "socks5://64.138.255.146:80"
+            },
         )
         try:
             return request.json()
