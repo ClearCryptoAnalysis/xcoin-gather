@@ -32,3 +32,5 @@ class GatherDataBitcoin(GatherDataBase):
             return request.json()
         except JSONDecodeError:
             return "\n"
+        except ConnectionResetError:
+            raise ConnectionResetError(f"block number {block_number}")
