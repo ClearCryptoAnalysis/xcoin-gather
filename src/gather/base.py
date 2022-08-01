@@ -39,6 +39,7 @@ class DataChunk(abc.ABC):
                     lines = ("\n".join(
                         [json.dumps(b) for b in new_data_chunk]
                     ) + "\n").encode("utf-8")
+                    file_out.write(lines)
                 self.data = lines
                 if not skip_sleep:
                     time.sleep(5)
