@@ -22,7 +22,7 @@ class GatherDataSolana(GatherDataBase):
         payload = {
             "jsonrpc": "2.0",
             "method": "getBlock",
-            "params": [block_number,],
+            "params": [block_number, {"transactionDetails": "signatures"}],
             "id": 69420,
         }
         request = session.post(
