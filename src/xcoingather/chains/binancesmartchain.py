@@ -1,14 +1,14 @@
 from json import JSONDecodeError
 import requests
 
-from .base import GatherDataBase
+from ..tools import GatherDataBase
 
 
-class GatherDataEthereum(GatherDataBase):
+class GatherDataBinanceSmartChain(GatherDataBase):
     def __init__(self, base_dir,):
         super().__init__(
-            name="Ethereum",
-            abbreviation="ETH",
+            name="Binance Smart Chain",
+            abbreviation="BSC",
             base_dir=base_dir,
             data_chunk_properties={
                 "chunk_size": 100000,
@@ -26,9 +26,12 @@ class GatherDataEthereum(GatherDataBase):
             "id": 420,
         }
         request = session.post(
-            "https://rpc.ankr.com/eth/",
+            "https://rpc.ankr.com/bsc",
             json=payload,
             headers=headers,
+            proxies={
+                "http": "socks5://64.138.255.146:80"
+            },
         )
         try:
             return request.json()["result"]

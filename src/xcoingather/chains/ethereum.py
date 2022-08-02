@@ -1,18 +1,18 @@
 from json import JSONDecodeError
 import requests
 
-from .base import GatherDataBase
+from ..tools import GatherDataBase
 
 
-class GatherDataSolana(GatherDataBase):
+class GatherDataEthereum(GatherDataBase):
     def __init__(self, base_dir,):
         super().__init__(
-            name="Solana",
-            abbreviation="SOL",
+            name="Ethereum",
+            abbreviation="ETH",
             base_dir=base_dir,
             data_chunk_properties={
                 "chunk_size": 100000,
-                "zfill_len": 4,
+                "zfill_len": 3,
             }
         )
 
@@ -21,19 +21,16 @@ class GatherDataSolana(GatherDataBase):
         headers = {"Content-Type": "application/json",}
         payload = {
             "jsonrpc": "2.0",
-            "method": "getBlock",
-            "params": [block_number, {"transactionDetails": "signatures"}],
-            "id": 69420,
+            "method": "eth_getBlockByNumber",
+            "params": [hex(block_number), False],
+            "id": 420,
         }
         request = session.post(
-            "https://rpc.ankr.com/solana",
+            "https://rpc.ankr.com/eth/",
             json=payload,
             headers=headers,
-            proxies={
-                "http": "socks5://149.56.96.252:9300"
-            },
         )
         try:
-            return request.json()
+            return request.json()["result"]
         except JSONDecodeError:
             return "\n"
