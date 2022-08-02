@@ -2,7 +2,7 @@ from json import JSONDecodeError
 import requests
 from string import Template
 
-from ..tools import GatherDataBase
+from .gather import GatherDataBase
 
 
 class GatherDataBitcoin(GatherDataBase):

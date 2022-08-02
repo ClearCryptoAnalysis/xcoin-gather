@@ -1,7 +1,7 @@
 from json import JSONDecodeError
 import requests
 
-from ..tools import GatherDataBase
+from .gather import GatherDataBase
 
 
 class GatherDataEthereum(GatherDataBase):
