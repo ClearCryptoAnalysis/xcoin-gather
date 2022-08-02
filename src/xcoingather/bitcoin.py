@@ -2,6 +2,7 @@ from json import JSONDecodeError
 import requests
 from string import Template
 
+from .blockbuilder import BulkBlockBuilderBase
 from .gather import GatherDataBase
 
 
@@ -37,3 +38,9 @@ class GatherDataBitcoin(GatherDataBase):
             return "\n"
         except ConnectionResetError:
             raise ConnectionResetError(f"block number {block_number}")
+
+
+class BitcoinBK2Builder(BulkBlockBuilderBase):
+    def __init__(self, data_path, gather_path=""):
+        self.gather = GatherDataBitcoin(gather_path)
+        super().__init__(data_path, self.gather)

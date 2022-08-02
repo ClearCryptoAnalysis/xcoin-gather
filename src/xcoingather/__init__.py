@@ -2,10 +2,22 @@
 from .gather import GatherDataBase
 
 # Import coins
-from .bitcoin import GatherDataBitcoin
-from .binancesmartchain import GatherDataBinanceSmartChain
-from .ethereum import GatherDataEthereum
-from .solana import GatherDataSolana
+from .bitcoin import (
+    BitcoinBK2Builder,
+    GatherDataBitcoin,
+)
+from .binancesmartchain import (
+    BinanceSmartChainBK2Builder,
+    GatherDataBinanceSmartChain,
+)
+from .ethereum import (
+    EthereumBK2Builder,
+    GatherDataEthereum,
+)
+from .solana import (
+    SolanaBK2Builder,
+    GatherDataSolana,
+)
 available_coins = [
     "BTC", "BSC", "ETH", "SOL"
 ]

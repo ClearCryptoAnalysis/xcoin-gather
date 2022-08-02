@@ -1,6 +1,7 @@
 from json import JSONDecodeError
 import requests
 
+from .blockbuilder import BulkBlockBuilderBase
 from .gather import GatherDataBase
 
 
@@ -34,3 +35,9 @@ class GatherDataEthereum(GatherDataBase):
             return request.json()["result"]
         except JSONDecodeError:
             return "\n"
+
+
+class EthereumBK2Builder(BulkBlockBuilderBase):
+    def __init__(self, data_path, gather_path=""):
+        self.gather = GatherDataEthereum(gather_path)
+        super().__init__(data_path, self.gather)

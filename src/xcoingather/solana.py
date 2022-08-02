@@ -1,6 +1,7 @@
 from json import JSONDecodeError
 import requests
 
+from .blockbuilder import BulkBlockBuilderBase
 from .gather import GatherDataBase
 
 
@@ -37,3 +38,9 @@ class GatherDataSolana(GatherDataBase):
             return request.json()
         except JSONDecodeError:
             return "\n"
+
+
+class SolanaBK2Builder(BulkBlockBuilderBase):
+    def __init__(self, data_path, gather_path=""):
+        self.gather = GatherDataSolana(gather_path)
+        super().__init__(data_path, self.gather)
