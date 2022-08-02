@@ -3,11 +3,11 @@ from .gather import GatherDataBase
 
 # Import coins
 from .bitcoin import (
-    BitcoinBK2Builder,
+    # BitcoinBK2Builder,
     GatherDataBitcoin,
 )
 from .binancesmartchain import (
-    BinanceSmartChainBK2Builder,
+    # BinanceSmartChainBK2Builder,
     GatherDataBinanceSmartChain,
 )
 from .ethereum import (
@@ -15,7 +15,7 @@ from .ethereum import (
     GatherDataEthereum,
 )
 from .solana import (
-    SolanaBK2Builder,
+    # SolanaBK2Builder,
     GatherDataSolana,
 )
 available_coins = [
